@@ -151,7 +151,7 @@ let checkAlphabet = function()
         if (alphabet[i].length > 1)
         {
             console.error(`\'${alphabet[i]}\' is not allowed. You must use only one character.`);
-            alert(`\'${alphabet[i]}\' is not allowed. You must use only one character.`);
+            alert(`\'${alphabet[i]}\' недопустимо. Можно использовать только один символ.`);
             return false;
         }
     }
@@ -166,7 +166,7 @@ let checkTape = function()
         if (alphabet.indexOf(tape[i]) == -1)
         {
             console.error(`Symbol \'${tape[i]}\' is not declared in alphabet.`);
-            alert(`Symbol \'${tape[i]}\' is not declared in alphabet.`);
+            alert(`Symbol \'${tape[i]}\' отсутствует в алфавите.`);
             return false;
         }
     }
@@ -195,7 +195,7 @@ let checkRules = function()
                 if (alphabet.indexOf(sym) == -1)
                 {
                     console.error(`Symbol \'${sym}\' is not declared in alphabet.`);
-                    alert(`Symbol \'${sym}\' is not declared in alphabet.`);
+                    alert(`Symbol \'${sym}\' отсутствует в алфавите`);
                     return false;
                 }
 
@@ -203,7 +203,7 @@ let checkRules = function()
                 else if (charset.indexOf(mov) == -1)
                 {
                     console.error(`Symbol \'${mov}\' is not allowed.`)
-                    alert(`Symbol \'${mov}\' is not allowed. You can use only \'L\', \'S\' or \'R\'.`)
+                    alert(`Symbol \'${mov}\' недопустимо. Можно использовать только: \'L\', \'S\' or \'R\'.`)
                     return false;
                 }
 
@@ -273,7 +273,7 @@ run.onclick = function()
         }
         if (loop > endless_cycle_limit)
         {
-            alert('Looks like your program got into an endless loop');
+            alert('Программа попала в бесконечный цикл');
             break;
         }
         
