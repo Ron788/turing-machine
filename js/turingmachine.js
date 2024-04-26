@@ -79,7 +79,7 @@ rstate.onclick = function()
 
 
 //////////////////////// Turing Machine /////////////////////////
-const charset = ['L','N','R'];
+const charset = ['L','S','R'];
 
 const tapeinput = document.getElementById("tapeinput");
 const run = document.getElementById("run");
