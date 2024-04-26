@@ -187,8 +187,8 @@ let checkRules = function()
             rule = rules[i][j];
             if (rule != '-')
             {
-                sym = rules[i][j][-2];
-                mov = rules[i][j][-1];
+                sym = rules[i][j][rule.length - 2];
+                mov = rules[i][j][rule.length - 1];
                 state = rules[i][j].slice(0, -2);
 
                 // the first symbol in a rule must be declared in alphabet
@@ -255,10 +255,10 @@ run.onclick = function()
         rule = rules[state][alphabet.indexOf(tape[RWH])];
         if (rule != '-')
         {
-            newsym = rule[0];
-            mov = rule[1];
+            newsym = rule[rule.length - 2];
+            mov = rule[rule.length - 1];
             last_state = state;
-            state = rule.slice(3);
+            state = rule.slice(1, -2);
             loop = (last_state == state) ? loop + 1 : 0;
             tape[RWH] = newsym;
             switch (mov) {
