@@ -187,8 +187,8 @@ let checkRules = function()
             rule = rules[i][j];
             if (rule != '-')
             {
-                sym = rules[i][j][rule.length - 2];
-                mov = rules[i][j][rule.length - 1];
+                sym = rules[i][j][rules[i][j].length - 2];
+                mov = rules[i][j][rules[i][j].length - 1];
                 state = rules[i][j].slice(0, -2);
 
                 // the first symbol in a rule must be declared in alphabet
