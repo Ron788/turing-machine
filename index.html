@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Turing machine Online</title>
+  <title>Turing machine Online by Pony</title>
   <meta http-equiv="Content-Type" content="text/ html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="It's turing machine simulator online which runs your program according to your rules in the instruction table.">
@@ -18,12 +18,12 @@
 
 <body>
   <header>
-    <h1>The Turing Machine</h1>
+    <h1>The Turing Machine by Pony</h1>
   </header>
   <hr>
   <div class="app">
     <form action="" onsubmit="return false;">
-        <h2>The instruction table <i class="far fa-question-circle" id="tmhelp"></i>  
+        <h2>Инструкция (которую я не перевел) <i class="far fa-question-circle" id="tmhelp"></i>  
         <p id="how-to-use">
           &ensp; This is the turing machine simulator which runs program according to rules in the instruction table.  <br> &ensp; You can manage the table by clicking on its cells, except of state cells. Use buttons "Add symbol" to add a new symbol to alphabet, "Remove symbol" to remove the last symbol from alphabet, "Add state" to add a new state, "Remove state" to remove the last state. <br> &ensp; "Run" button runs your algorithm with your input, "Clear" button clears the tape (use it when you change the instruction table) and "Step" button do a step forward in your program. <br> Use
         </p>
@@ -49,26 +49,26 @@
           
         </table>
         </div>
-        <button class="tablebutton" id="asym">Add symbol</button>
-        <button class="tablebutton" id="rsym">Remove symbol</button>
-        <button class="tablebutton" id="astate">Add State</button>
-        <button class="tablebutton" id="rstate">Remove State</button>
+        <button class="tablebutton" id="asym">Добавить в алфавит</button>
+        <button class="tablebutton" id="rsym">Удалить из алфавита</button>
+        <button class="tablebutton" id="astate">Добавить состояние</button>
+        <button class="tablebutton" id="rstate">Удалить состояние</button>
       
       
       <div id="input_tapeblock">
-        <h2>The input</h2>
+        <h2>Ввод:</h2>
         <input type="text" name="tapeinput" id="tapeinput" value="100001"><label for="tapeinput" accesskey="t"></label>
       </div>
     </form>
 
     <div class="tapeblock">
-      <h2>The tape:</h2>
+      <h2>Вывод:</h2>
       <p id="temptape"></p>
     </div>
 
-    <button id="run">Run</button>
-    <button id="clear">Clear</button>
-    <button id="step">Step</button>
+    <button id="run">Выполнить</button>
+    <button id="clear">Очистить</button>
+    <button id="step">Шаг</button>
     
   </div>
     <script src="js/turingmachine.js"></script>
