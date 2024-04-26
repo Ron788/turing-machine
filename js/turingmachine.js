@@ -333,9 +333,9 @@ step.onclick = function()
             rule = rules[step_state][alphabet.indexOf(tape[step_RWH])];
             if (rule != '-')
             {
-                newsym = rule[0];
-                mov = rule[1];
-                step_state = rule.slice(3);
+                newsym = rule[rule.length-2];
+                mov = rule[rule.length-1];
+                step_state = rule.slice(1, -2);
                 tape[step_RWH] = newsym;
                 last_tape = tape;
                 switch (mov) {
