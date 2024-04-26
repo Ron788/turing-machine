@@ -203,7 +203,7 @@ let checkRules = function()
                 else if (charset.indexOf(mov) == -1)
                 {
                     console.error(`Symbol \'${mov}\' is not allowed.`)
-                    alert(`Symbol \'${mov}\' is not allowed. You can use only \'L\', \'N\' or \'R\'.`)
+                    alert(`Symbol \'${mov}\' is not allowed. You can use only \'L\', \'S\' or \'R\'.`)
                     return false;
                 }
 
@@ -262,8 +262,8 @@ run.onclick = function()
             loop = (last_state == state) ? loop + 1 : 0;
             tape[RWH] = newsym;
             switch (mov) {
-                case 'L': RWH--; if(tape[RWH] == undefined) tape[RWH] = '_'; break;
-                case 'R': RWH++; if(tape[RWH] == undefined) tape[RWH] = '_'; break;
+                case 'L': RWH--; if(tape[RWH] == undefined) tape[RWH] = '0'; break;
+                case 'R': RWH++; if(tape[RWH] == undefined) tape[RWH] = '0'; break;
             }
         }
         else
@@ -339,8 +339,8 @@ step.onclick = function()
                 tape[step_RWH] = newsym;
                 last_tape = tape;
                 switch (mov) {
-                    case 'L': step_RWH--; if(tape[step_RWH] == undefined) {tape.unshift('_'); step_RWH++;} break;
-                    case 'R': step_RWH++; if(tape[step_RWH] == undefined) tape[step_RWH] = '_'; break;
+                    case 'L': step_RWH--; if(tape[step_RWH] == undefined) {tape.unshift('0'); step_RWH++;} break;
+                    case 'R': step_RWH++; if(tape[step_RWH] == undefined) tape[step_RWH] = '0'; break;
                 }
             }
             else
