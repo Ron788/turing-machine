@@ -262,7 +262,7 @@ run.onclick = function()
             loop = (last_state == state) ? loop + 1 : 0;
             tape[RWH] = newsym;
             switch (mov) {
-                case 'L': RWH--; if(tape[RWH] == undefined) tape[RWH] = '0'; break;
+                case 'L': RWH--; if(tape[RWH] == undefined) {tape.unshift('0'); RWH++;} break;
                 case 'R': RWH++; if(tape[RWH] == undefined) tape[RWH] = '0'; break;
             }
         }
