@@ -303,7 +303,7 @@ function step_updateTape(newtape, state, RWH)
     let rwtext = document.createTextNode(`^ [q${state}]`);
     rwhead.appendChild(rwtext);
     rwhead.style.fontSize = '0.9em';
-    rwhead.style.marginLeft = `${9.2*RWH + 3}px`;
+    rwhead.style.marginLeft = `${9.2*RWH + 6}px`;
     //temptape.innerHTML = newtape.slice(0, RWH).join('') + `[${newtape[RWH]}]` + newtape.slice(RWH+1).join('') + ` [q${state}]`;
     temptape.innerHTML = inner;
     temptape.appendChild(rwhead);
