@@ -22,7 +22,7 @@ asym.onclick = function()
     for(let i = 1; i < table.rows.length; i++)
     {
         let a = table.rows[i].insertCell(rlength);
-        a.innerHTML = "<input type=\"text\" class=\"rule\">";
+        a.innerHTML = "<input type=\"text\" class=\"rule\" value=\"-\">";
     }
     return;
 }
@@ -58,7 +58,7 @@ astate.onclick = function()
     for (let i = 1; i < table.rows[0].cells.length; i++)
     {
         let ncell = nrow.insertCell(i);
-        ncell.innerHTML = "<input type=\"text\" class=\"rule\">"
+        ncell.innerHTML = "<input type=\"text\" class=\"rule\" value=\"-\">"
     }
     return;
 }
