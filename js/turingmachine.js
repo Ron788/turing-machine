@@ -113,7 +113,7 @@ function getInput()
         for (let j = 1; j < table.rows[0].cells.length; j++)
         {
             let str = table.rows[i].cells[j].getElementsByTagName("input")[0].value.trim();
-            str = str.replace('Q', 'q');
+            str = str.replace('Q', 'q').replace('l', 'L').replace('s', 'S').replace('r', 'R');
             table.rows[i].cells[j].getElementsByTagName("input")[0].value = str;
             rules[i][j-1] = str;
 
