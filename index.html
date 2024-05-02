@@ -18,14 +18,14 @@
 
 <body>
   <header>
-    <h1>The Turing Machine by Pony</h1>
+    <h1>The Turing Machine</h1>
   </header>
   <hr>
   <div class="app">
     <form action="" onsubmit="return false;">
-        <h2>Инструкция (которую я не перевел) <i class="far fa-question-circle" id="tmhelp"></i>  
+        <h2>Инструкция  <i class="far fa-question-circle" id="tmhelp"></i>  
         <p id="how-to-use">
-          &ensp; This is the turing machine simulator which runs program according to rules in the instruction table.  <br> &ensp; You can manage the table by clicking on its cells, except of state cells. Use buttons "Add symbol" to add a new symbol to alphabet, "Remove symbol" to remove the last symbol from alphabet, "Add state" to add a new state, "Remove state" to remove the last state. <br> &ensp; "Run" button runs your algorithm with your input, "Clear" button clears the tape (use it when you change the instruction table) and "Step" button do a step forward in your program. <br> Use
+          &ensp; Это симулятор машины тьюринга, который выполняет программу в соответствии с правилами, изложенными в таблице инструкций.  <br> &ensp; Вы можете управлять таблицей, щелкая по ее ячейкам, за исключением ячеек состояний. Используйте кнопки "Добавить символ", чтобы добавить новый символ в алфавит, "Удалить символ", чтобы удалить последний символ из алфавита, "Добавить состояние", чтобы добавить новое состояние, "Удалить состояние", чтобы удалить последнее состояние. <br> &ensp; Кнопка "Выполнить" запускает алгоритм с вашими исходными данными, кнопка "Очистить" очищает ленту (используйте ее при изменении таблицы инструкций), а кнопка "Шаг" делает шаг вперед в вашей программе.
         </p>
         </h2>
 
@@ -49,10 +49,16 @@
           
         </table>
         </div>
-        <button class="tablebutton" id="asym">Добавить в алфавит</button>
-        <button class="tablebutton" id="rsym">Удалить из алфавита</button>
-        <button class="tablebutton" id="astate">Добавить состояние</button>
-        <button class="tablebutton" id="rstate">Удалить состояние</button>
+        <div class="button-container">
+          <div>
+            <button class="tablebutton" id="asym">Добавить символ</button>
+            <button class="tablebutton" id="rsym">Удалить символ</button>
+          </div>
+          <div>
+            <button class="tablebutton" id="astate">Добавить состояние</button>
+            <button class="tablebutton" id="rstate">Удалить состояние</button>
+          </div>
+        </div>
       
       
       <div id="input_tapeblock">
@@ -69,6 +75,11 @@
     <button id="run">Выполнить</button>
     <button id="clear">Очистить</button>
     <button id="step">Шаг</button>
+
+    <div>
+      <p id="info">Author <a href="https://github.com/archemich">archemich</a>. Fork by <a href="https://github.com/Ron788/"> Ron788</a></p> 
+      <p id="info">Please report any errors to <a href="https://t.me/Ron788">me</a></p>     
+    </div>
     
   </div>
     <script src="js/turingmachine.js"></script>

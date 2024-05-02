@@ -125,7 +125,9 @@ h2 {
 
 .tablebutton {
 	height: 40px;
-	width: 140px;
+	width: 135px;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .app button:hover {
@@ -135,6 +137,7 @@ h2 {
 	background: grey;
 	color: white;
 }
+
 
 
 
@@ -207,5 +210,15 @@ background: #BB0000;
 	display: block;
 	border-radius: 10px;
 	padding: 5px 0px 5px 5px;
-	width: 600px;
 }
+
+#info {
+	font-size: 10px;
+}
+
+.button-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+
+

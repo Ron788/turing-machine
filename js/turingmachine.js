@@ -166,7 +166,7 @@ let checkTape = function()
         if (alphabet.indexOf(tape[i]) == -1)
         {
             console.error(`Symbol \'${tape[i]}\' is not declared in alphabet.`);
-            alert(`Symbol \'${tape[i]}\' отсутствует в алфавите.`);
+            alert(`Символ \'${tape[i]}\' отсутствует в алфавите.`);
             return false;
         }
     }
@@ -195,7 +195,7 @@ let checkRules = function()
                 if (alphabet.indexOf(sym) == -1)
                 {
                     console.error(`Symbol \'${sym}\' is not declared in alphabet.`);
-                    alert(`Symbol \'${sym}\' отсутствует в алфавите`);
+                    alert(`Символ \'${sym}\' отсутствует в алфавите`);
                     return false;
                 }
 
@@ -203,7 +203,7 @@ let checkRules = function()
                 else if (charset.indexOf(mov) == -1)
                 {
                     console.error(`Symbol \'${mov}\' is not allowed.`)
-                    alert(`Symbol \'${mov}\' недопустимо. Можно использовать только: \'L\', \'S\' or \'R\'.`)
+                    alert(`Инструкция \'${mov}\' недопустима. Можно использовать только: \'L\', \'S\' or \'R\'.`)
                     return false;
                 }
 
@@ -268,7 +268,7 @@ run.onclick = function()
         }
         else
         {
-            alert(`Turing machine tried to use \'-\' rule here: "state = q${state}, symbol = ${tape[RWH]}"`);
+            alert(`Машина пыталась использовать неопределенное правило в состоянии q${state}, с символом ${tape[RWH]}`);
             break;
         }
         if (loop > endless_cycle_limit)
@@ -346,13 +346,13 @@ step.onclick = function()
             else
             {
                 first_step = true;
-                alert(`Turing machine tried to use \'-\' rule here: "state = q${step_state}, symbol = ${tape[step_RWH]}"`);
+                alert(`Машина пыталась использовать неопределенное правило в состоянии q${step_state}, с символом ${tape[step_RWH]}`);
                 return false;
             }
         }
         else
         {
-            alert(`Turing machine have already completed program`);
+            alert(`Машина Тьюринга завершило выполнение программы`);
         }
     }
     step_updateTape(tape, step_state, step_RWH);
