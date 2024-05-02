@@ -112,7 +112,12 @@ function getInput()
         rules[i] = [];
         for (let j = 1; j < table.rows[0].cells.length; j++)
         {
-            rules[i][j-1] = table.rows[i].cells[j].getElementsByTagName("input")[0].value.trim();
+            let str = table.rows[i].cells[j].getElementsByTagName("input")[0].value.trim();
+            str = str.replace('Q', 'q');
+            table.rows[i].cells[j].getElementsByTagName("input")[0].value = str;
+            rules[i][j-1] = str;
+
+            console.log(str)
         }
     }
     console.debug("Alphabet is", alphabet);
