@@ -78,6 +78,8 @@ rstate.onclick = function()
 }
 
 
+
+
 //////////////////////// Turing Machine /////////////////////////
 const charset = ['L','S','R'];
 
@@ -116,8 +118,6 @@ function getInput()
             str = str.replace('Q', 'q').replace('l', 'L').replace('s', 'S').replace('r', 'R');
             table.rows[i].cells[j].getElementsByTagName("input")[0].value = str;
             rules[i][j-1] = str;
-
-            console.log(str)
         }
     }
     console.debug("Alphabet is", alphabet);
@@ -362,4 +362,114 @@ step.onclick = function()
     }
     step_updateTape(tape, step_state, step_RWH);
     return true;
+}
+
+expt.onclick = function()
+{
+    if (!confirm("Действительно хотите экспортировать? (защита от мисклика)")){
+        return;
+    }
+
+
+    getInput();
+
+    var data = '';
+
+    for (let i = 1; i < rules.length; i++){
+        if (rules[i] == undefined){
+            continue;
+        }
+        data = data + rules[i] + "\n";
+    }
+
+    var blob = new Blob([data], {type: 'text/plain'});
+
+    var downloadLink = document.createElement('a');
+    downloadLink.href = window.URL.createObjectURL(blob);
+
+    downloadLink.download = 'mashine.txt';
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+
+    document.body.removeChild(downloadLink);
+}
+
+impt.onclick = function()
+{
+    if (!confirm("Действительно хотите импортировать? (защита от мисклика)")){
+        return;
+    }
+
+    getInput();
+
+    var file = document.getElementById('fileInput').files[0];
+
+    if (file) {
+        var reader = new FileReader();
+        
+        reader.onload = function(event) {
+            // Когда файл загружен, выводим его содержимое
+            var contents = event.target.result;
+            
+            rules = contents.split('\n');
+            //rules.shift();
+            updateRules();
+        };
+        
+        // Чтение файла в виде текста
+        reader.readAsText(file);
+    } else {
+        console.log('No file selected');
+    }
+
+    console.log(rules);
+}
+
+function updateRules(){
+    while (true){
+        if (delState()){
+            break;
+        }
+    }
+
+    let table = document.getElementById("table_rules");
+    var fstrule = rules[0].split(',');
+    table.rows[1].cells[1].getElementsByTagName("input")[0].value = fstrule[0]
+    table.rows[1].cells[2].getElementsByTagName("input")[0].value = fstrule[1]
+
+    for (let i = 1; i < rules.length; i++){
+        if (rules[i] == ''){
+            continue;
+        }
+        addStates(rules[i])
+    }
+}
+
+function delState(){
+    let table = document.getElementById("table_rules");
+    let rc = table.rows.length;
+    if (rc > 2)
+    {
+        table.deleteRow(rc-1);
+    }else{
+        return true;
+    }
+    return false;
+}
+
+function addStates(rule){
+    rule = rule.split(',');
+    let table = document.getElementById("table_rules");
+    let rc = table.rows.length;
+    let nrow = table.insertRow(rc);
+    let cell = nrow.insertCell(0);
+    cell.className = "state";
+    cell.innerHTML = `q${rc}`;
+    for (let i = 1; i < table.rows[0].cells.length; i++)
+    {
+        let ncell = nrow.insertCell(i);
+        ncell.innerHTML = `<input type=\"text\" class=\"rule\" value=\"${rule[i - 1]}\">`
+    }
+    return;
 }
