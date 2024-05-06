@@ -373,7 +373,7 @@ expt.onclick = function()
 
     getInput();
 
-    var data = '';
+    var data = tapeinput.value + '\n';
 
     for (let i = 1; i < rules.length; i++){
         if (rules[i] == undefined){
@@ -381,6 +381,7 @@ expt.onclick = function()
         }
         data = data + rules[i] + "\n";
     }
+
 
     var blob = new Blob([data], {type: 'text/plain'});
 
@@ -413,7 +414,8 @@ impt.onclick = function()
             var contents = event.target.result;
             
             rules = contents.split('\n');
-            //rules.shift();
+            tapeinput.value = rules[0];
+            rules.shift();
             updateRules();
         };
         
