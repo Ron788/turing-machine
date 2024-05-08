@@ -398,32 +398,33 @@ expt.onclick = function()
 
 impt.onclick = function()
 {
+    var file = document.getElementById('fileInput').files[0];
+
+    if (!file){
+        alert("Для импорта сначала выберите файл!")
+        return
+    }
+
     if (!confirm("Действительно хотите импортировать? (защита от мисклика)")){
         return;
     }
 
     getInput();
 
-    var file = document.getElementById('fileInput').files[0];
-
-    if (file) {
-        var reader = new FileReader();
+    var reader = new FileReader();
+    
+    reader.onload = function(event) {
+        // Когда файл загружен, выводим его содержимое
+        var contents = event.target.result;
         
-        reader.onload = function(event) {
-            // Когда файл загружен, выводим его содержимое
-            var contents = event.target.result;
-            
-            rules = contents.split('\n');
-            tapeinput.value = rules[0];
-            rules.shift();
-            updateRules();
-        };
-        
-        // Чтение файла в виде текста
-        reader.readAsText(file);
-    } else {
-        console.log('No file selected');
-    }
+        rules = contents.split('\n');
+        tapeinput.value = rules[0];
+        rules.shift();
+        updateRules();
+    };
+    
+    // Чтение файла в виде текста
+    reader.readAsText(file);
 
     console.log(rules);
 }
